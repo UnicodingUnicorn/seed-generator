@@ -2,18 +2,15 @@ var fs = require("fs");
 
 var Random = require("random-js");
 var mt = Random.engines.mt19937();
-if(process.argv[2]){
-	mt.seed(parseInt(process.argv[2]));
-}else{
-	mt.seed((new Date()).getTime());
-}
+
+mt.seed((new Date()).getTime());
 
 var data = fs.readFileSync("manifesto.txt", "utf8");
 var words = data.split(' ');
 var cache = {};
 
 if(words.length < 3){
-	process.exit(1);
+	console.err("Seed file too short!");
 }
 for(var i = 0; i < words.length - 2; i++){
 	var w1 = words[i].replace(/\s/g,'');
@@ -50,4 +47,7 @@ module.exports = function(size){
 		if(success) output_string += " " + w2;
 	}
 	return output_string;
-}
+};
+module.exports.seed = function(seed){
+	mt.seed(seed);
+};
