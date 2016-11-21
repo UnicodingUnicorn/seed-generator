@@ -1,0 +1,15 @@
+{
+  "name": "seed_generator",
+  "version": "1.0.0",
+  "description": "Generates a short string, maybe for a seed, for any text, by default the Communist Manifesto",
+  "main": "index.js",
+  "dependencies": {
+    "random-js": "^1.0.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "unicodingunicorn",
+  "license": "ISC"
+}
